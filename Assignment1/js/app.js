@@ -7,7 +7,11 @@
   var app = angular.module('LunchCheck', []);
 
   //after the variable it is initialized with the module we proceed with the controller
-  app.controller('LunchCheckController', function ($scope) {
+  app.controller('LunchCheckController', LunchCheckController);
+  // This is placed to protect the code from minification
+  LunchCheckController.$inject = ['$scope'];
+
+  function LunchCheckController($scope) {
     $scope.dishes = '';
     $scope.result = '';
 
@@ -18,7 +22,7 @@
             $scope.result = 'Please enter data between the comas!';
         }else {
             var list = $scope.dishes.split(',')
-
+            console.log(list)
             if(countDishes(list) <= 3){
               $scope.result = 'Enjoy it!';
             } else {
@@ -30,10 +34,11 @@
         var count = 0;
         for (var i = 0; i < list.length; i++) {
 
-          if(list[i] != ""){
+          if(list[i] != "" && list[i] != " "){
             count += 1;
           }
         }
+        console.log(count)
         return count
       }
 
@@ -43,7 +48,7 @@
       }
     }
 
-  }); //here is where we difine the controller, we put the name and its functionality
+  } //here is where we difine the controller, we put the name and its functionality
     // so with the controller defined it is available  bounded with the view
     // Html and css
 })();
