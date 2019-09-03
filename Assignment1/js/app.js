@@ -34,11 +34,10 @@
         var count = 0;
         for (var i = 0; i < list.length; i++) {
 
-          if(list[i] != "" && list[i] != " "){
+          if(list[i] !== " " ){
             count += 1;
           }
         }
-        console.log(count)
         return count
       }
 
