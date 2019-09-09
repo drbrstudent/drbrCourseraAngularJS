@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShoppingListCheckOff">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"> </script>
+    <script type="text/javascript" src="js/angular.min.js"> </script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+       <h1>Shopping List Check Off</h1>
+
+       <div class="row">
+
+         <!-- Controller -->
+         <div class="col-md-6" ng-controller="ToBuyController as toBuy">
+            <h2>To Buy:</h2>
+            <!--this code below will be replace with ng-repeat-->
+            <ul>
+              <!--In Botton tag, it will be included ng-click-->
+              <li ng-repeat="item in toBuy.buyList" class="row">
+                <p class="col-md-6">Buy {{item.quantity}} {{item.name}}</p>
+                <button class="col-md-6 btn btn-outline-secondary"><span class="glyphicon glyphicon-ok"></span> Bought</button>
+              </li>
+
+            </ul>
+          <div class="emptyMessage">Everything is bought!</div>
+         </div>
+
+         <!-- controller 2 -->
+         <div class="col-md-6" ng-controller="AlreadyBoughtController as bought">
+          <h2>Already Bought:</h2>
+          <!--this code below will be replace with ng-repeat-->
+          <ul>
+            <li>Bought 10 cookies</li>
+          </ul>
+          <div class="emptyMessage">Nothing bought yet.</div>
+         </div>
+       </div>
+    </div>
+  </body>
+</html>
