@@ -26,6 +26,21 @@
       ShoppingListCheckOffService.removeItems(toBuy.buyList, index);
     }
 
+    toBuy.checkList = function () {
+      console.log(toBuy.buyList.length)
+
+      if (toBuy.buyList.length == 5) {
+        toBuy.message = 'Ready to buy!';
+      }
+      else if(toBuy.buyList.length > 0) {
+        toBuy.message = 'Number of items bought: '+ (5 - toBuy.buyList.length);
+      }
+      else {
+        toBuy.message = 'Everything is bought!';
+      }
+    return true;
+    }
+
   }
 
   AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
@@ -35,6 +50,16 @@
     bought.boughtList = [];
     bought.boughtList = ShoppingListCheckOffService.getItems();
     console.log(bought.boughtList);
+
+    bought.checkList = function () {
+      if(bought.boughtList == 0) {
+        bought.message = 'Nothing bought yet!';
+      }
+      else {
+        bought.message = '';
+      }
+      return true;
+    }
   }
 
   function ShoppingListCheckOffService() {

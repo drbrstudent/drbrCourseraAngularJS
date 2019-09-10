@@ -30,7 +30,7 @@
               </li>
 
             </ul>
-          <div class="emptyMessage">Everything is bought!</div>
+          <div ng-if="toBuy.checkList();" class="emptyMessage">{{toBuy.message}}</div>
          </div>
 
          <!-- controller 2 -->
@@ -40,7 +40,7 @@
             <ul>
               <li ng-repeat="item in bought.boughtList">Bought {{item.quantity}} {{item.name}}</li>
             </ul>
-            <div class="emptyMessage">Nothing bought yet.</div>
+            <div ng-if="bought.checkList();" class="emptyMessage">{{bought.message}}</div>
          </div>
        </div>
     </div>
