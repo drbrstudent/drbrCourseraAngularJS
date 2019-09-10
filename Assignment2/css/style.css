@@ -4,18 +4,27 @@
   font-size: 1.2em;
 }
 
+ul {
+  padding: 0px;
+}
+
 li {
-    margin-bottom: 7px;
+
+    margin-bottom: 10px;
     font-size: 1.2em;
 }
 
-li > p {
-    margin-left: 3px;
+li.buy {
+  padding-left: 20px;
 }
 
-li > button {
-    margin-left: -40px;
-    padding-left: 0 10px 0 10px;
+li.buy > p {
+    margin-left: 7px;
+}
+
+li.buy > p + button {
+
+    margin-left: -70px;
 }
 
 button > span {

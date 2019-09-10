@@ -21,18 +21,37 @@
                    {name: "Candy", quantity: "10"},
                    {name: "Bottle of Water", quantity: "8"}];
 
+    toBuy.removeItems = function (index) {
+      ShoppingListCheckOffService.addItems(toBuy.buyList[index]);
+      ShoppingListCheckOffService.removeItems(toBuy.buyList, index);
+    }
+
   }
 
   AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
 
   function AlreadyBoughtController (ShoppingListCheckOffService) {
     var bought = this;
-    var boughtList = [];
+    bought.boughtList = [];
+    bought.boughtList = ShoppingListCheckOffService.getItems();
+    console.log(bought.boughtList);
   }
 
   function ShoppingListCheckOffService() {
     var service = this;
+    var list = []
 
+    service.addItems = function (item) {
+      list.push(item);
+    };
+
+    service.removeItems = function (list, index) {
+      list.splice(index,1);
+    };
+
+    service.getItems = function () {
+      return list;
+    }
 
   }
 
