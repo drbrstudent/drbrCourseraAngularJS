@@ -1,0 +1,16 @@
+<ol>
+
+  <li ng-repeat="item in narrowIt.items">
+
+    <div class="row">
+      <div class="col-md-6">
+        <p> <b>Name:</b>{{ item.name }}, <b>ShortName:</b> {{ item.short_name }}, <b>Description:</b> {{ item.description }}</p>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-info" ng-click="narrowIt.onRemove({index: $index});">Don't want this one!</button>
+      </div>
+    </div>
+
+  </li>
+</ol>
+<div class="error" ng-if="narrowIt.itemsInList();">NO ITEMS WERE FOUND!</div>
