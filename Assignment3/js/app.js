@@ -69,7 +69,7 @@
     promise.then(function (response) {
         narrowIt.found = [];
         var items = response.data.menu_items;
-        // console.log(items.length);
+
 
         for (var i = 0; i < items.length; i++) {
 
@@ -82,8 +82,7 @@
             }
 
         }
-        // console.log(narrowIt.found)
-        // console.log(narrowIt.found.length)
+
 
       }).catch(function (error) {
         console.log("Something went wrong.");
