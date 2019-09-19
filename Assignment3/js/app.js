@@ -35,19 +35,11 @@
     var narrowIt = this;
 
     narrowIt.itemsInList = function () {
-      // console.log(narrowIt);
-      // console.log(narrowIt.items);
-      // console.log(narrowIt.items.length);
-      //  console.log("here at itemsInList");
+  
       if(narrowIt.items.length === 0) {
         return true;
       }
-     // for (var i = 0; i < narrowIt.items.length; i++) {
-     //   var name = narrowIt.found[i].name;
-     //   if (name.toLowerCase().indexOf() !== -1) {
-     //     return false;
-     //   }
-     // }
+
 
      return false;
     };
