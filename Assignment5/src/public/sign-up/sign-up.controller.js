@@ -45,8 +45,6 @@
     $ctrl.clientNewsletter = function (params) {
       $ctrl.client = ClientService.clientNewsletter(params);
       $ctrl.clientFavoriteDish();
-
-
     }
 
     $ctrl.getClientInfo = function () {
