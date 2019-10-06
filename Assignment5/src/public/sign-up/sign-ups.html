@@ -1,0 +1,88 @@
+
+
+<form name='regForm' ng-if='!$ctrl.information.getValidate();'>
+  <div class="container">
+    <div class="box">
+      <legend>Registration</legend>
+        <div class="form-group">
+          <label >Name: </label>
+
+          <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> -->
+          <input type="text" class="form-control" name="firstname" placeholder="Enter your name"
+                ng-model="$ctrl.information.user.firstname"
+                required
+                minlength="2"
+                ng-maxlength="15">
+        </div>
+        <div class="validation"
+            ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+            Name should be at least 2 characters long
+        </div>
+        <div class="validation" ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
+            Name must not be longer than 15 characters
+        </div>
+
+        <label >Last Name: </label>
+        <div class="form-group">
+          <input type="text" class="form-control" name="lastname" placeholder="Enter your lastname"
+                ng-model="$ctrl.information.user.lastname"
+                required
+                minlength="2"
+                ng-maxlength="15">
+        </div>
+        <div class="validation"
+            ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+            Name should be at least 2 characters long
+        </div>
+        <div class="validation" ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
+            Name must not be longer than 15 characters
+        </div>
+
+        <label >Email:</label>
+        <div class="form-group">
+          <input type="text" class="form-control" name="email" placeholder="Enter your email"
+                ng-model="$ctrl.information.user.email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required>
+        </div>
+        <div class="validation" ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format, in lowercase
+        </div>
+
+        <label >Phone Number:</label>
+        <div class="form-group">
+          <input type="text" class="form-control" name="phone" placeholder="Enter your phone number"
+                ng-model="$ctrl.information.user.phone"
+                pattern="(\d{3})-(\d{3})-(\d{4})"
+                required>
+
+        </div>
+        <div class="validation" ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format 123-456-7890.
+        </div>
+        <label>Menu number:</label>
+        <div class="form-group">
+          <input type="text" class="form-control" name="menu" placeholder="Enter the number of your favorite dish"
+                ng-model="$ctrl.information.user.dish"
+                required dish-validation>
+        </div>
+
+        <div class="validation" ng-show='regForm.menu.$error.dish || (regForm.menu.$invalid && regForm.menu.$touched)'>
+            No such menu number exists.
+        </div>
+
+        <button ng-disabled="regForm.$invalid"
+                ng-click = $ctrl.information.clientNewsletter(regForm);
+                type="button" class="btn btn-warning">Sign Up</button>
+
+
+    </div>
+
+
+  </div>
+
+</form>
+
+<div id="info" ng-if="$ctrl.information.submit();">
+    Your information has been saved
+</div>
