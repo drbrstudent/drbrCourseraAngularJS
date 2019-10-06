@@ -66,13 +66,9 @@
       if (ClientService.getClientInfo().length === 0) {
           ClientService.validate = false;
       }
-    
+
       return ClientService.validate;
     };
-
-
-
-
 
   }
 }
